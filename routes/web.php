@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('exam', 'ExamController@index');
+Route::post('result', 'ExamController@result');

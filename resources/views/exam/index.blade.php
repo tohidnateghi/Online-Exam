@@ -19,6 +19,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/pages/exam.css">
+    <link rel="stylesheet" href="css/fonts/fontawesome/all.css">
 
     <title>Exam Project</title>
 </head>
@@ -29,14 +30,14 @@
 
         <!-- Sidebar -->
         <div class="bg-light border-left" id="sidebar-wrapper">
-            <div class="sidebar-heading">آزمون </div>
+            <div class="sidebar-heading"> <i class="fa fa-check"></i> آزمون </div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">داشبورد</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">پروفایل</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">تنظیمات</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-tachometer-alt"></i> داشبورد</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-user"></i> پروفایل</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fa fa-cog"></i> تنظیمات</a>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
+        <!-- End Sidebar -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -44,9 +45,8 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <button class="btn btn-primary" id="menu-toggle">منو</button>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#ExamNav" aria-controls="ExamNav" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ExamNav"
+                    aria-controls="ExamNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -55,16 +55,16 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#">صفحه اصلی</a>
                         </li>
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 گزینه ها
                             </a>
                             <div class="dropdown-menu dropdown-menu-left p-0" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">پروفایل</a>
-                                <a class="dropdown-item" href="#">نمودار پیشرفت</a>
-                                <a class="dropdown-item" href="#">تنظیمات</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> پروفایل</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-chart-bar"></i> نمودار پیشرفت</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> تنظیمات</a>
                             </div>
                         </li>
                     </ul>
@@ -78,7 +78,8 @@
                         <div id="q1">
                             <p>1.سوال</p>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" for="exam" name="q1" id="answer-1"> جواب نادرست
+                                <input class="form-check-input" type="radio" for="exam" name="q1" id="answer-1"> جواب
+                                نادرست
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" for="exam" name="q1"> جواب درست
@@ -243,10 +244,17 @@
 
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
+        <!-- End page-content-wrapper -->
     </div>
-    <!-- /#wrapper -->
+    <!-- End wrapper -->
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-2">
+        <div class="container">
+            <p class="m-0 text-center">طراحی و توسعه با <i class="fa fa-heart"></i> توسط ناطقی</p>
+        </div>
+    </footer>
+    <!-- End Footer -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

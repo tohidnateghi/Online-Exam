@@ -52,21 +52,21 @@ function show_result(answer) {
     var inputs, div, correct = 0, wrong = 0, empty = 0;
 
     answer.forEach(function (value) {
-        inputs = document.querySelectorAll('#q' + value['id'] + ' .form-group input');
-        div = document.querySelectorAll('#q' + value['id'] + ' .form-group');
+        inputs = document.querySelectorAll('#q' + value['id'] + ' .form-check input');
+        div = document.querySelectorAll('#q' + value['id'] + ' .form-check');
         var checked = false;
 
         inputs.forEach(function (input, i) {
             input.setAttribute('disabled', 'disabled');
             if (input.checked && (value['answer'] - 1) != i) {
-                div[i].classList.add("wrong");
+                div[i].classList.add("bg-danger");
                 wrong++;
             }
             else if (input.checked && (value['answer'] - 1) == i) {
-                div[i].classList.add("correct");
+                div[i].classList.add("bg-success");
                 correct++;
             } else if ((value['answer'] - 1) == i) {
-                div[i].classList.add("isCorrect");
+                div[i].classList.add("bg-success-2");
             }
             if (input.checked) {
                 checked = true;

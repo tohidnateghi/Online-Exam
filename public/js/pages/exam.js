@@ -1,7 +1,7 @@
 'use strict'
 
 //send ajax request and get answers
-document.getElementById('exam').onsubmit = function (event) {
+document.getElementById('exam').onsubmit = function(event) {
     event.preventDefault();
     document.getElementById('show_result').setAttribute('disabled', 'disabled');
 
@@ -30,12 +30,11 @@ document.getElementById('exam').onsubmit = function (event) {
     ajax.setRequestHeader('X-CSRF-TOKEN', token);
     ajax.setRequestHeader('Content-type', "application/json; charset=UTF-8");
 
-    ajax.onreadystatechange = function () {
+    ajax.onreadystatechange = function() {
         if (this.readyState == XMLHttpRequest.DONE) {
             if (this.status == 200) {
                 show_result(this.responseText);
-            }
-            else {
+            } else {
                 alert('مشکلی در برقراری ارتباط رخ داده است');
                 document.getElementById('show_result').removeAttribute('disabled');
             }
@@ -49,24 +48,25 @@ document.getElementById('exam').onsubmit = function (event) {
 function show_result(answer) {
     answer = JSON.parse(answer);
 
-    var inputs, div, correct = 0, wrong = 0, empty = 0;
+    var inputs, div, correct = 0,
+        wrong = 0,
+        empty = 0;
 
-    answer.forEach(function (value) {
+    answer.forEach(function(value) {
         inputs = document.querySelectorAll('#q' + value['id'] + ' .form-check input');
         div = document.querySelectorAll('#q' + value['id'] + ' .form-check');
         var checked = false;
 
-        inputs.forEach(function (input, i) {
+        inputs.forEach(function(input, i) {
             input.setAttribute('disabled', 'disabled');
             if (input.checked && (value['answer'] - 1) != i) {
-                div[i].classList.add("bg-danger");
+                div[i].classList.add("wrong");
                 wrong++;
-            }
-            else if (input.checked && (value['answer'] - 1) == i) {
-                div[i].classList.add("bg-success");
+            } else if (input.checked && (value['answer'] - 1) == i) {
+                div[i].classList.add("correct");
                 correct++;
             } else if ((value['answer'] - 1) == i) {
-                div[i].classList.add("bg-success-2");
+                div[i].classList.add("is-correct");
             }
             if (input.checked) {
                 checked = true;

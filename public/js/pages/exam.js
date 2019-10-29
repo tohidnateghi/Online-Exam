@@ -81,4 +81,9 @@ function show_result(answer) {
     document.getElementById('correct').innerHTML = correct;
     document.getElementById('wrong').innerHTML = wrong;
     document.getElementById('empty').innerHTML = empty;
+
+    document.getElementById('correct').parentElement.classList.remove('d-none');
+    document.getElementById('wrong').parentElement.classList.remove('d-none');
+    document.getElementById('empty').parentElement.classList.remove('d-none');
+
 }

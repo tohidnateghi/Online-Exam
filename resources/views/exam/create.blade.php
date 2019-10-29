@@ -5,7 +5,7 @@
     <h4 class="my-4">افزودن آزمون جدید</h4>
     <form>
 
-        <div class="border border-primary p-4 my-2">
+        <div class="border p-2 my-2">
             <div class="form-group">
                 <textarea class="form-control" id="question1" rows="2" placeholder="متن سوال"></textarea>
             </div>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="form-row">
-                <legend class="col-form-label col-sm-2 pt-0">گزینه صحیح : </legend>
+                <legend class="col-form-label col-lg-2 col-sm-3 pt-0">گزینه صحیح : </legend>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" id="correct1" name="correct-answer" value="correct1">
                     <label class="form-check-label" for="correct1">یک</label>

@@ -1,59 +1,80 @@
 <!doctype html>
-<html lang="en">
+<!--[if lte IE 9]>         <html lang="en" class="lt-ie10 lt-ie10-msg no-focus"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en" class="no-focus">
+<!--<![endif]-->
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-    <!-- Your own meta tags -->
-    <meta name="description" content="Exam Project">
-    <meta name="author" content="Tohid Nateghi">
+    <title>پروژه من - یک پروژه جدید دیگر</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-rtl.css">
+    <meta name="description" content="Online Exam project with laravel">
+    <meta name="author" content="pixelcave">
+    <meta name="robots" content="noindex, nofollow">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="/css/main.css">
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework">
+    <meta property="og:site_name" content="Codebase">
+    <meta property="og:description" content="Online Exam project with laravel">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
 
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="/css/fonts/fontawesome/all.css">
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+    <!-- END Icons -->
 
-    <!-- Custom CSS -->
+    <!-- Stylesheets -->
+    <!-- Codebase framework -->
+    <link rel="stylesheet" id="css-main" href="/css/codebase.css">
+
+    <link rel="stylesheet" href="/css/rtl.css">
+
     @yield('styles')
 
-    <title>Exam Project</title>
+    <!-- END Stylesheets -->
 </head>
 
 <body>
 
-    <div class="d-flex" id="wrapper">
+    <!-- Page Container -->
+
+    <div id="page-container" class="@yield('sidebar-class', " sidebar-o sidebar-r side-scroll page-header-modern
+        main-content-boxed")">
+        <!-- Side Overlay-->
+        @include('layouts.sidebar-left')
+        <!-- END Side Overlay -->
 
         <!-- Sidebar -->
         @include('layouts.sidebar')
-        <!-- End Sidebar -->
+        <!-- END Sidebar -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <!-- Header -->
+        @include('layouts.header')
+        <!-- END Header -->
 
-            <!-- Sidebar -->
-            @include('layouts.navbar')
-            <!-- End Sidebar -->
-
-            <!-- Main content -->
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Content -->
             @yield('content')
-            <!-- End main content -->
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
 
-        </div>
-        <!-- End page-content-wrapper -->
+        <!-- Footer -->
+        @include('layouts.footer')
+        <!-- END Footer -->
     </div>
-    <!-- End wrapper -->
+    <!-- END Page Container -->
 
-    <!-- Footer -->
-    @include('layouts.footer')
-    <!-- End Footer -->
-
+    <!-- Codebase Core JS -->
+    <script src="/js/codebase.min.js"></script>
+    @yield('scripts')
 </body>
 
 </html>

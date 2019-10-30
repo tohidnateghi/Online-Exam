@@ -1,24 +1,11 @@
-<!-- Footer -->
-<footer class="bg-light py-2">
-    <div class="container">
-        <p class="m-0 text-center">طراحی و توسعه با <i class="fa fa-heart text-danger"></i> توسط ناطقی</p>
+<footer id="page-footer" class="opacity-0">
+    <div class="content py-20 font-size-xs clearfix">
+        <div class="float-right">
+            تمامی حقوق محفوظ می باشد
+        </div>
+        <div class="float-left">
+            توسعه یافته با <i class="fa fa-heart text-pulse"></i> توسط <a class="font-w600" href="http://t-nateghi.ir/"
+                target="_blank">ناطقی</a>
+        </div>
     </div>
 </footer>
-<!-- End Footer -->
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="/js/jquery-3.4.1.slim.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom JavaScript -->
-@yield('scripts')
-
-<!-- Menu Toggle Script -->
-<script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-</script>

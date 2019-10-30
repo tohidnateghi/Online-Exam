@@ -26,27 +26,37 @@
                     <input type="text" class="form-control" id="option4" placeholder="گزینه چهار">
                 </div>
             </div>
-            <div class="form-row">
-                <legend class="col-form-label col-lg-2 col-sm-3 pt-0">گزینه صحیح : </legend>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="correct1" name="correct-answer" value="correct1">
-                    <label class="form-check-label" for="correct1">یک</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="correct2" name="correct-answer" value="correct2">
-                    <label class="form-check-label" for="correct2">دو</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="correct3" name="correct-answer" value="correct3">
-                    <label class="form-check-label" for="correct3">سه</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="correct4" name="correct-answer" value="correct4">
-                    <label class="form-check-label" for="correct4">چهار</label>
-                </div>
 
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-row">
+                        <legend class="col-form-label col-lg-2 col-sm-3 pt-0">گزینه صحیح : </legend>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="correct1" name="correct-answer"
+                                value="correct1">
+                            <label class="form-check-label" for="correct1">یک</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="correct2" name="correct-answer"
+                                value="correct2">
+                            <label class="form-check-label" for="correct2">دو</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="correct3" name="correct-answer"
+                                value="correct3">
+                            <label class="form-check-label" for="correct3">سه</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="correct4" name="correct-answer"
+                                value="correct4">
+                            <label class="form-check-label" for="correct4">چهار</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-danger btn-sm float-left">حذف</button>
+                </div>
             </div>
-
         </div>
 
         <button type="button" class="btn btn-primary">افزودن سوال</button>

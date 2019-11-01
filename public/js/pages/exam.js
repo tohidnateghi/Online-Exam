@@ -1,33 +1,28 @@
 'use strict'
 
 //send ajax request and get answers
-document.getElementById('exam').onsubmit = function(event) {
+document.getElementById('show_result').onclick = function(event) {
     event.preventDefault();
     document.getElementById('show_result').setAttribute('disabled', 'disabled');
 
-    var inputs = document.querySelectorAll('input[for="exam"]');
+    var questions = document.querySelectorAll('.question');
     var data = {};
 
-    var k = 1;
-    for (let i = 0; i < inputs.length; i++) {
+    for (var i = 0; i < questions.length; i++) {
+        var inputs = questions[i].querySelectorAll('input');
 
-        if (k == 5) {
-            k = 1;
+        for (var k = 0; k < inputs.length; k++) {
+            if (inputs[k].checked) {
+                var id = (questions[i].id).replace('q-', '');
+                data[id] = k + 1;
+            }
         }
-
-        if (inputs[i].checked) {
-            data[inputs[i].parentNode.parentNode.id] = k;
-        }
-        k++;
     }
-
-    var token = document.querySelector('form input[name="_token"]').value;
-    var action = document.querySelector('#exam').action;
 
     var ajax = new XMLHttpRequest();
     ajax.open('POST', action);
 
-    ajax.setRequestHeader('X-CSRF-TOKEN', token);
+    ajax.setRequestHeader('X-CSRF-TOKEN', _token);
     ajax.setRequestHeader('Content-type', "application/json; charset=UTF-8");
 
     ajax.onreadystatechange = function() {
@@ -48,42 +43,46 @@ document.getElementById('exam').onsubmit = function(event) {
 function show_result(answer) {
     answer = JSON.parse(answer);
 
-    var inputs, div, correct = 0,
+    var correct = 0,
         wrong = 0,
         empty = 0;
 
-    answer.forEach(function(value) {
-        inputs = document.querySelectorAll('#q' + value['id'] + ' .form-check input');
-        div = document.querySelectorAll('#q' + value['id'] + ' .form-check');
+    var questions = document.querySelectorAll('.question');
+
+    answer.forEach(function(value, i) {
+
+        var inputs = questions[i].querySelectorAll('input');
+        var div = questions[i].querySelectorAll('.custom-control-label');
+
         var checked = false;
 
-        inputs.forEach(function(input, i) {
-            input.setAttribute('disabled', 'disabled');
-            if (input.checked && (value['answer'] - 1) != i) {
-                div[i].classList.add("wrong");
+        inputs.forEach(function(input, k) {
+            if (input.checked && (value['answer'] - 1) != k) {
+                div[k].classList.add("text-danger");
                 wrong++;
-            } else if (input.checked && (value['answer'] - 1) == i) {
-                div[i].classList.add("correct");
+            } else if (input.checked && (value['answer'] - 1) == k) {
+                div[k].classList.add("text-success");
                 correct++;
-            } else if ((value['answer'] - 1) == i) {
-                div[i].classList.add("is-correct");
+            } else if ((value['answer'] - 1) == k) {
+                div[k].classList.add("text-success");
             }
             if (input.checked) {
                 checked = true;
             }
+            input.disabled = true;
         });
 
         if (!checked) {
             empty++;
         }
+
     });
 
     document.getElementById('correct').innerHTML = correct;
     document.getElementById('wrong').innerHTML = wrong;
     document.getElementById('empty').innerHTML = empty;
 
-    document.getElementById('correct').parentElement.classList.remove('d-none');
-    document.getElementById('wrong').parentElement.classList.remove('d-none');
-    document.getElementById('empty').parentElement.classList.remove('d-none');
+    document.getElementById('show_result').remove();
+    document.getElementById('result').classList.remove('d-none');
 
 }

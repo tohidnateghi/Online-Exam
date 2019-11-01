@@ -18,12 +18,6 @@ class ExamController extends Controller
         $answer = array(
             ['id' => 1, 'answer' => 2],
             ['id' => 2, 'answer' => 3],
-            ['id' => 3, 'answer' => 1],
-            ['id' => 4, 'answer' => 4],
-            ['id' => 5, 'answer' => 2],
-            ['id' => 6, 'answer' => 3],
-            ['id' => 7, 'answer' => 1],
-            ['id' => 8, 'answer' => 2],
         );
 
         $correct = 0;

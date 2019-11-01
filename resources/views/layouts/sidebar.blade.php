@@ -47,6 +47,18 @@
                             <span class="sidebar-mini-hide">داشبورد</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="/exam">
+                            <i class="si si-check"></i>
+                            <span class="sidebar-mini-hide">آزمون</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/exam/create">
+                            <i class="si si-plus"></i>
+                            <span class="sidebar-mini-hide">افزودن آزمون</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

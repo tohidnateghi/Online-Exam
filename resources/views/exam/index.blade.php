@@ -9,7 +9,7 @@
     <div class="row">
             <div class="col-md-12">
                 <!-- Default Elements -->
-                <div class="block">
+                <div class="block block-mode-loading-refresh" id="exam-block">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">کد درس : 8798</h3>
                         <div class="block-options">

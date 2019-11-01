@@ -3,6 +3,8 @@
 //send ajax request and get answers
 document.getElementById('show_result').onclick = function(event) {
     event.preventDefault();
+
+    document.getElementById('exam-block').classList.add('block-mode-loading');
     document.getElementById('show_result').setAttribute('disabled', 'disabled');
 
     var questions = document.querySelectorAll('.question');
@@ -32,6 +34,7 @@ document.getElementById('show_result').onclick = function(event) {
             } else {
                 alert('مشکلی در برقراری ارتباط رخ داده است');
                 document.getElementById('show_result').removeAttribute('disabled');
+                document.querySelector('#exam-block').classList.remove('block-mode-loading');
             }
         }
     }
@@ -84,5 +87,6 @@ function show_result(answer) {
 
     document.getElementById('show_result').remove();
     document.getElementById('result').classList.remove('d-none');
+    document.querySelector('#exam-block').classList.remove('block-mode-loading');
 
 }

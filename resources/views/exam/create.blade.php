@@ -2,65 +2,81 @@
 
 @section('content')
 <div class="container">
-    <h4 class="my-4">افزودن آزمون جدید</h4>
-    <form>
 
-        <div class="border p-2 my-2">
-            <div class="form-group">
-                <textarea class="form-control" id="question1" rows="2" placeholder="متن سوال"></textarea>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="option1" placeholder="گزینه یک">
+    <h2 class="content-heading">افزودن آزمون جدید</h2>
+    <div id="questions">
+        <div class="block">
+            <div class="block-content">
+                <div class="form-group row">
+                    <div class="col-12">
+                        <textarea class="form-control" id="mega-bio" name="mega-bio" rows="2" placeholder="متن سوال را اینجا وارد کنید"></textarea>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="option2" placeholder="گزینه دو">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="option3" placeholder="گزینه سه">
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="text" class="form-control" id="option4" placeholder="گزینه چهار">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="form-row">
-                        <legend class="col-form-label col-lg-2 col-sm-3 pt-0">گزینه صحیح : </legend>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="correct1" name="correct-answer"
-                                value="correct1">
-                            <label class="form-check-label" for="correct1">یک</label>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mega-city" name="mega-city" placeholder="گزینه یک">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="correct2" name="correct-answer"
-                                value="correct2">
-                            <label class="form-check-label" for="correct2">دو</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="correct3" name="correct-answer"
-                                value="correct3">
-                            <label class="form-check-label" for="correct3">سه</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="correct4" name="correct-answer"
-                                value="correct4">
-                            <label class="form-check-label" for="correct4">چهار</label>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mega-city" name="mega-city" placeholder="گزینه دو">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <button type="button" class="btn btn-danger btn-sm float-left">حذف</button>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mega-city" name="mega-city" placeholder="گزینه سه">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="mega-city" name="mega-city" placeholder="گزینه چهار">
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <p>گزینه صحیح : </p>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="custom-control custom-radio custom-control-inline mb-5">
+                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio1" value="option1">
+                            <label class="custom-control-label" for="example-inline-radio1">یک</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline mb-5">
+                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio2" value="option2">
+                            <label class="custom-control-label" for="example-inline-radio2">دو</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline mb-5">
+                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio3" value="option3">
+                            <label class="custom-control-label" for="example-inline-radio3">سه</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline mb-5">
+                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio4" value="option3">
+                            <label class="custom-control-label" for="example-inline-radio4">چهار</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-outline-danger btn-sm float-left remove">حذف</button>
+                    </div>
+                </div>        
             </div>
         </div>
+    </div>
 
-        <button type="button" class="btn btn-primary">افزودن سوال</button>
-        <button type="submit" class="btn btn-success">ذخیره</button>
-    </form>
+    <div class="row">
+        <div class="col-12">
+            <button id="add" type="button" class="btn btn-outline-primary">افزودن سوال</button>
+            <button type="button" class="btn btn-outline-success">ذخیره</button>
+        </div>
+    </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script src="/js/pages/exam-create.js"></script>
 @endsection

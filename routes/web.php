@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('exam', 'ExamController@index');
+Route::post('exam', 'ExamController@store');
 Route::get('exam/create', 'ExamController@create');
 Route::post('result', 'ExamController@result');

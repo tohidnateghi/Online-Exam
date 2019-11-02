@@ -14,6 +14,10 @@ class ExamController extends Controller
         return view('exam.create');
     }
 
+    public function store(Request $request) {
+        return dd($request->all());
+    }
+
     public function result(Request $request) {
         $answer = array(
             ['id' => 1, 'answer' => 2],

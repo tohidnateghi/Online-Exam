@@ -2,10 +2,7 @@
 
 @section('content')
 <div class="container">
-
-    <h2 class="content-heading">افزودن آزمون جدید</h2>
-    <div id="questions">
-        <div class="block">
+        <div id="blockSample" class="block d-none">
             <div class="block-content">
                 <div class="form-group row">
                     <div class="col-12">
@@ -44,20 +41,20 @@
                     </div>
                     <div class="col-md-8">
                         <div class="custom-control custom-radio custom-control-inline mb-5">
-                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio1" value="option1">
-                            <label class="custom-control-label" for="example-inline-radio1">یک</label>
+                            <input class="custom-control-input" type="radio" name="sample-inline-radios" id="sample-inline-radio1" value="option1">
+                            <label class="custom-control-label" for="sample-inline-radio1">یک</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline mb-5">
-                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio2" value="option2">
-                            <label class="custom-control-label" for="example-inline-radio2">دو</label>
+                            <input class="custom-control-input" type="radio" name="sample-inline-radios" id="sample-inline-radio2" value="option2">
+                            <label class="custom-control-label" for="sample-inline-radio2">دو</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline mb-5">
-                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio3" value="option3">
-                            <label class="custom-control-label" for="example-inline-radio3">سه</label>
+                            <input class="custom-control-input" type="radio" name="sample-inline-radios" id="sample-inline-radio3" value="option3">
+                            <label class="custom-control-label" for="sample-inline-radio3">سه</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline mb-5">
-                            <input class="custom-control-input" type="radio" name="example-inline-radios" id="example-inline-radio4" value="option3">
-                            <label class="custom-control-label" for="example-inline-radio4">چهار</label>
+                            <input class="custom-control-input" type="radio" name="sample-inline-radios" id="sample-inline-radio4" value="option3">
+                            <label class="custom-control-label" for="sample-inline-radio4">چهار</label>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -66,6 +63,10 @@
                 </div>        
             </div>
         </div>
+
+    <h2 class="content-heading">افزودن آزمون جدید</h2>
+    <div id="questions">
+
     </div>
 
     <div class="row">

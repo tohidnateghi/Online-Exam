@@ -1,18 +1,12 @@
 'use strict'
 
-var removeButtons = document.querySelectorAll('.remove');
+document.getElementById('add').onclick = createNewBlock;
 
-function removeFunction(event) {
-    event.target.closest('.block').remove();
-}
-
-removeButtons.forEach(function(button) {
-    button.addEventListener('click', removeFunction);
-});
-
-document.getElementById('add').onclick = function() {
-    var block = document.querySelector('.container .block');
+function createNewBlock() {
+    var block = document.querySelector('#blockSample');
     var newBlock = block.cloneNode(true);
+
+    newBlock.classList.remove('d-none');
 
     //empty textarea and inputs
     newBlock.querySelector('textarea').value = '';
@@ -22,8 +16,6 @@ document.getElementById('add').onclick = function() {
     newBlock.querySelectorAll('input[type=radio]').forEach(function(input, i) {
         input.id = 'sddsd' + i;
         input.setAttribute('name', 'sddsd');
-        // input.removeAttribute('checked');
-
     });
 
     newBlock.querySelectorAll('label').forEach(function(label, i) {
@@ -33,4 +25,8 @@ document.getElementById('add').onclick = function() {
 
     newBlock.querySelector('.remove').addEventListener('click', removeFunction);
     document.querySelector('#questions').appendChild(newBlock);
+}
+
+function removeFunction(event) {
+    event.target.closest('.block').remove();
 }

@@ -41,6 +41,7 @@
 </head>
 
 <body>
+    <div id="page-loader" class="hide"></div>
 
     <!-- Page Container -->
 
@@ -74,6 +75,7 @@
 
     <!-- Codebase Core JS -->
     <script src="/js/codebase.min.js"></script>
+    <script src="/js/plugins/bootstrap-notify/bootstrap-notify.js"></script>
     @yield('scripts')
 </body>
 

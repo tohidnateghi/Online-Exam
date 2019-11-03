@@ -15,7 +15,8 @@ class ExamController extends Controller
     }
 
     public function store(Request $request) {
-        return dd($request->all());
+        $request->session()->flash('status', 'آزمون با موفقیت اضافه شد');
+
     }
 
     public function result(Request $request) {

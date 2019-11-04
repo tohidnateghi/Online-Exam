@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-    <title>پروژه من - یک پروژه جدید دیگر</title>
+    <title>آزمون آنلاین</title>
 
     <meta name="description" content="Online Exam project with laravel">
     <meta name="author" content="pixelcave">
@@ -71,11 +71,11 @@
         @include('layouts.footer')
         <!-- END Footer -->
     </div>
+    
     <!-- END Page Container -->
 
     <!-- Codebase Core JS -->
-    <script src="/js/codebase.min.js"></script>
-    <script src="/js/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <script src="/js/codebase.js"></script>
     @yield('scripts')
 </body>
 

@@ -1,26 +1,5 @@
 'use strict'
 
-function showMessage(message, type) {
-    $.notify({
-        // options
-        icon: 'fa fa-times',
-        message: message,
-    }, {
-        // settings
-        type: type,
-        placement: {
-            from: "bottom",
-            align: "left"
-        },
-
-        animate: {
-            enter: 'animated fadeInUp',
-            exit: 'animated fadeOutDown'
-        },
-
-    });
-}
-
 document.getElementById('add').onclick = createNewBlock;
 document.getElementById('title').addEventListener('input', removeErrorBlock);
 document.getElementById('code').addEventListener('input', removeErrorBlock);
@@ -43,16 +22,16 @@ function createNewBlock() {
     newBlock.querySelector('.q-number').innerHTML = number;
     newBlock.querySelector('textarea').id = 'question[' + count + '][text]';
     newBlock.querySelector('textarea').name = 'question[' + count + '][text]';
-    newBlock.querySelectorAll('input[type=text]').forEach(function(input, i) {
+    newBlock.querySelectorAll('input[type=text]').forEach(function (input, i) {
         input.id = 'question[' + count + '][answer][' + (i + 1) + ']';
         input.name = 'question[' + count + '][answer][' + (i + 1) + ']';
     });
-    newBlock.querySelectorAll('input[type=radio]').forEach(function(input, i) {
+    newBlock.querySelectorAll('input[type=radio]').forEach(function (input, i) {
         input.id = 'question[' + count + '][option][' + (i + 1) + ']';
         input.name = 'question[' + count + '][option]';
     });
 
-    newBlock.querySelectorAll('label').forEach(function(label, i) {
+    newBlock.querySelectorAll('label').forEach(function (label, i) {
         label.setAttribute('for', 'question[' + count + '][option][' + (i + 1) + ']');
 
     });
@@ -64,9 +43,9 @@ function createNewBlock() {
 function removeFunction(event) {
     event.target.closest('.block').className += ' animated fadeOut';
 
-    setTimeout(function() {
+    setTimeout(function () {
         event.target.closest('.block').remove();
-        document.querySelectorAll('.q-number').forEach(function(el, i) {
+        document.querySelectorAll('.q-number').forEach(function (el, i) {
             el.innerHTML = i;
         });
     }, 800);
@@ -74,7 +53,7 @@ function removeFunction(event) {
     number--;
 }
 
-document.getElementById('create-exam-form').onsubmit = function(event) {
+document.getElementById('create-exam-form').onsubmit = function (event) {
     event.preventDefault();
     formError = false;
 
@@ -101,14 +80,14 @@ document.getElementById('create-exam-form').onsubmit = function(event) {
         formError = true;
     }
 
-    questions.forEach(function(question) {
+    questions.forEach(function (question) {
         var text = question.querySelector('textarea');
         if (text.value == '') {
             addErrorBlock(text);
         }
 
         var answers = question.querySelectorAll('input[type=text]');
-        answers.forEach(function(answer) {
+        answers.forEach(function (answer) {
             if (answer.value == '') {
                 addErrorBlock(answer);
             }
@@ -116,7 +95,7 @@ document.getElementById('create-exam-form').onsubmit = function(event) {
 
         var options = question.querySelectorAll('input[type=radio]');
         var checked = false;
-        options.forEach(function(option) {
+        options.forEach(function (option) {
             if (option.checked) {
                 checked = true;
             }
@@ -161,12 +140,12 @@ function removeErrorBlock(event) {
 function addEvents(element) {
     element.querySelector('textarea').addEventListener('input', removeErrorBlock);
 
-    element.querySelectorAll('input[type=text]').forEach(function(input) {
+    element.querySelectorAll('input[type=text]').forEach(function (input) {
         input.addEventListener('input', removeErrorBlock);
     });
 
-    element.querySelectorAll('input[type=radio]').forEach(function(input) {
-        input.addEventListener('change', function() {
+    element.querySelectorAll('input[type=radio]').forEach(function (input) {
+        input.addEventListener('change', function () {
             element.querySelector('.correct-answer').classList.remove('text-danger');
         });
     });
@@ -185,16 +164,16 @@ function submitForm() {
 
     var questions = document.querySelectorAll('#questions .block');
 
-    questions.forEach(function(question, i) {
+    questions.forEach(function (question, i) {
         data.questions[i + 1] = {};
         data.questions[i + 1]['text'] = question.querySelector('textarea').value;
 
         data.questions[i + 1]['answer'] = {};
-        question.querySelectorAll('input[type=text]').forEach(function(answer, k) {
+        question.querySelectorAll('input[type=text]').forEach(function (answer, k) {
             data.questions[i + 1]['answer'][k + 1] = answer.value;
         });
 
-        question.querySelectorAll('input[type=radio]').forEach(function(option, k) {
+        question.querySelectorAll('input[type=radio]').forEach(function (option, k) {
             if (option.checked) {
                 data.questions[i + 1]['correct'] = k + 1;
                 return;
@@ -211,13 +190,13 @@ function submitForm() {
     ajax.setRequestHeader('X-CSRF-TOKEN', _token);
     ajax.setRequestHeader('Content-type', "application/json; charset=UTF-8");
 
-    ajax.onreadystatechange = function() {
+    ajax.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE) {
             if (this.status == 200) {
                 window.location.replace('/');
             } else {
                 alert('مشکلی رخ داده است.');
-                Codebase.loader('hide')
+                Codebase.loader('hide');
             }
         }
     }

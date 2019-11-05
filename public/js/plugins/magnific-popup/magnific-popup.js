@@ -895,9 +895,9 @@ $.magnificPopup = {
 
 		closeMarkup: '<button title="%title%" type="button" class="mfp-close">&#215;</button>',
 
-		tClose: 'بستن (Esc)',
+		tClose: 'Close (Esc)',
 
-		tLoading: 'در حال بارگذاری...',
+		tLoading: 'Loading...',
 
 		autoFocusLast: true
 
@@ -1677,9 +1677,9 @@ $.magnificPopup.registerModule('gallery', {
 		navigateByImgClick: true,
 		arrows: true,
 
-		tPrev: 'قبلی (کلید فلش چپ)',
-		tNext: 'بعدی (کلید فلش راست)',
-		tCounter: '%curr% از %total%'
+		tPrev: 'Previous (Left arrow key)',
+		tNext: 'Next (Right arrow key)',
+		tCounter: '%curr% of %total%'
 	},
 
 	proto: {

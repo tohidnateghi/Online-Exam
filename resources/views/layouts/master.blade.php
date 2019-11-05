@@ -75,6 +75,13 @@
     <!-- END Page Container -->
 
     <!-- Codebase Core JS -->
+    <script src="/js/core/jquery.min.js"></script>
+    <script src="/js/core/bootstrap.bundle.min.js"></script>
+    <script src="/js/core/jquery.slimscroll.min.js"></script>
+    <script src="/js/core/jquery.scrollLock.min.js"></script>
+    <script src="/js/core/jquery.appear.min.js"></script>
+    <script src="/js/core/jquery.countTo.min.js"></script>
+    <script src="/js/core/js.cookie.min.js"></script>
     <script src="/js/codebase.js"></script>
     @yield('scripts')
 </body>

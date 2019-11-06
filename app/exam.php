@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Exam extends Model
 {
     protected $fillable = ['title', 'time'];
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }

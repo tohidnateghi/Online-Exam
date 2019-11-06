@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Exam;
-use App\Question;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -25,7 +24,7 @@ class ExamController extends Controller
         ]);
 
         foreach($data['questions'] as $question) {
-            Question::create([
+            $exam->questions()->create([
                 'exam_id' => $exam->id,
                 'text' => $question['text'],
                 'option1' => $question['option1'],

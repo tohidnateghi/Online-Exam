@@ -78,16 +78,12 @@
                     <div class="block">
                         <div class="block-content">
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <div class="form-group">
                                         <input type="text" class="form-control" id="title" name="title" placeholder="عنوان آزمون...">
                                     </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" id="code" name="code" placeholder="کد درس...">
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <input type="number" class="form-control" id="time" name="time" placeholder="زمان آزمون...">

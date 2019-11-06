@@ -2,7 +2,6 @@
 
 document.getElementById('add').onclick = createNewBlock;
 document.getElementById('title').addEventListener('input', removeErrorBlock);
-document.getElementById('code').addEventListener('input', removeErrorBlock);
 document.getElementById('time').addEventListener('input', removeErrorBlock);
 
 var count = 0;
@@ -65,11 +64,6 @@ document.getElementById('create-exam-form').onsubmit = function (event) {
     var title = document.getElementById('title');
     if (title.value == '') {
         addErrorBlock(title);
-    }
-
-    var code = document.getElementById('code');
-    if (code.value == '') {
-        addErrorBlock(code);
     }
 
     var time = document.getElementById('time');
@@ -161,7 +155,6 @@ function addEvents(element) {
 function submitForm() {
     var data = {
         title: document.getElementById('title').value,
-        code: document.getElementById('code').value,
         time: document.getElementById('time').value,
         questions: {}
     };

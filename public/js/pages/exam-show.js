@@ -1,8 +1,54 @@
 'use strict'
+document.getElementById('exam-form').addEventListener('submit', submitForm);
+
+var endTime = new Date().getTime() + (examTime * 60 * 1000);
+var firstDistance = endTime - new Date().getTime();
+
+var remaining = setInterval(() => {
+    // Get todays date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now an the count down date
+    var distance = endTime - now;
+
+    if (distance < 0) {
+        document.getElementById('progressbar').style.width = '0%';
+        clearInterval(remaining);
+        submitForm();
+        return;
+    }
+
+    // Time calculations for days, hours, minutes and seconds
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in an element with id="coming"
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+    var remainingPercent = (100 * distance ) / firstDistance;
+
+    var progressbar = document.getElementById('progressbar');
+    if(remainingPercent < 30 && remainingPercent > 10) {
+        document.getElementById('progressbar').classList.remove('bg-success');
+        document.getElementById('progressbar').classList.add('bg-warning');
+    }
+
+    if(remainingPercent < 10) {
+        document.getElementById('progressbar').classList.remove('bg-warning');
+        document.getElementById('progressbar').classList.add('bg-danger');
+    }
+
+    progressbar.style.width = remainingPercent + '%';
+}, 300);
 
 //send ajax request and get answers
-document.getElementById('show_result').onclick = function(event) {
-    event.preventDefault();
+function submitForm(event) {
+
+    if(event) {
+        event.preventDefault();
+    }
 
     document.getElementById('exam-block').classList.add('block-mode-loading');
     document.getElementById('show_result').setAttribute('disabled', 'disabled');
@@ -20,6 +66,9 @@ document.getElementById('show_result').onclick = function(event) {
             }
         }
     }
+
+    var action = document.getElementById('exam-form').action;
+    var _token = document.querySelector('input[name=_token]').value;
 
     var ajax = new XMLHttpRequest();
     ajax.open('POST', action);
@@ -44,6 +93,7 @@ document.getElementById('show_result').onclick = function(event) {
 
 //show correct and wrong answers
 function show_result(answer) {
+    clearInterval(remaining);
     answer = JSON.parse(answer);
 
     var correct = 0,

@@ -17,5 +17,6 @@ Route::get('/', function () {
 
 Route::get('exam', 'ExamController@index');
 Route::post('exam', 'ExamController@store');
+Route::get('exam/{id}/show', 'ExamController@show');
 Route::get('exam/create', 'ExamController@create');
-Route::post('result', 'ExamController@result');
+Route::post('exam/result/{id}', 'ExamController@result')->name('result');

@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Exam;
+use App\Question;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
 {
     public function index() {
         return view('exam.index');
+    }
+
+    public function show($id) {
+        $exam = Exam::with('questions')->findOrFail($id);
+        return view('exam.show', compact('exam'));
     }
 
     public function create() {
@@ -38,11 +44,9 @@ class ExamController extends Controller
         $request->session()->flash('status', 'آزمون با موفقیت اضافه شد');
     }
 
-    public function result(Request $request) {
-        $answer = array(
-            ['id' => 1, 'answer' => 2],
-            ['id' => 2, 'answer' => 3],
-        );
+    public function result($id, Request $request) {
+
+        $answer = Question::where('exam_id', $id)->get(['id', 'answer']);
 
         $correct = 0;
         $wrong = 0;

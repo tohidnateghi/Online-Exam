@@ -23,18 +23,15 @@
     <meta property="og:image" content="">
 
     <!-- Icons -->
-    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
     <link rel="shortcut icon" href="/img/favicons/favicon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/favicon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
-    <!-- Codebase framework -->
-    <link rel="stylesheet" id="css-main" href="/css/codebase.css">
+    <link rel="stylesheet" href="/css/all.css">
 
-    <link rel="stylesheet" href="/css/rtl.css">
-
+    {{-- Custom styles --}}
     @yield('styles')
 
     <!-- END Stylesheets -->
@@ -74,15 +71,10 @@
     
     <!-- END Page Container -->
 
-    <!-- Codebase Core JS -->
-    <script src="/js/core/jquery.min.js"></script>
-    <script src="/js/core/bootstrap.bundle.min.js"></script>
-    <script src="/js/core/jquery.slimscroll.min.js"></script>
-    <script src="/js/core/jquery.scrollLock.min.js"></script>
-    <script src="/js/core/jquery.appear.min.js"></script>
-    <script src="/js/core/jquery.countTo.min.js"></script>
-    <script src="/js/core/js.cookie.min.js"></script>
-    <script src="/js/codebase.js"></script>
+    <!-- All JS Files -->
+    <script src="/js/all.js"></script>
+
+    {{-- custom scripts --}}
     @yield('scripts')
 </body>
 

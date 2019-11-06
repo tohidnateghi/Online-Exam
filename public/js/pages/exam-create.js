@@ -13,11 +13,12 @@ function createNewBlock() {
     count++;
     number++;
 
+    document.getElementById('submit').classList.remove('d-none');
     var block = document.querySelector('#blockSample');
     var newBlock = block.cloneNode(true);
 
     newBlock.classList.remove('d-none');
-    newBlock.className += ' animated fadeIn';
+    newBlock.className += ' animated fadeInLeft';
 
     newBlock.querySelector('.q-number').innerHTML = number;
     newBlock.querySelector('textarea').id = 'question[' + count + '][text]';
@@ -51,6 +52,9 @@ function removeFunction(event) {
     }, 800);
 
     number--;
+    if(number == 0) {
+        document.getElementById('submit').classList.add('d-none');
+    }
 }
 
 document.getElementById('create-exam-form').onsubmit = function (event) {

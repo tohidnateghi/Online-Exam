@@ -105,8 +105,8 @@
 
             <div class="row">
                 <div class="col-12">
-                    <button id="add" type="button" class="btn btn-outline-primary">افزودن سوال</button>
-                    <button type="submit" class="btn btn-outline-success">ذخیره</button>
+                    <button id="add" type="button" class="btn btn-primary"  data-toggle="click-ripple"><i class="fa fa-plus"></i> افزودن سوال</button>
+                    <button id="submit" type="submit" class="btn btn-success d-none" data-toggle="click-ripple"><i class="fa fa-save"></i> ذخیره</button>
                 </div>
             </div>
         </form>

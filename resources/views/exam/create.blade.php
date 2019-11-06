@@ -20,31 +20,31 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="sample-answer-1" name="sample-answer-1" placeholder="گزینه یک...">
+                            <input type="text" class="form-control" id="sample-option-1" name="sample-option-1" placeholder="گزینه یک...">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="sample-answer-2" name="sample-answer-2" placeholder="گزینه دو...">
+                            <input type="text" class="form-control" id="sample-option-2" name="sample-option-2" placeholder="گزینه دو...">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="sample-answer-3" name="sample-answer-3" placeholder="گزینه سه...">
+                            <input type="text" class="form-control" id="sample-option-3" name="sample-option-3" placeholder="گزینه سه...">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="sample-answer-4" name="sample-answer-4" placeholder="گزینه چهار...">
+                            <input type="text" class="form-control" id="sample-option-4" name="sample-option-4" placeholder="گزینه چهار...">
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-group row">
                     <div class="col-md-2">
-                        <p class="correct-answer">گزینه صحیح : </p>
+                        <p class="correct-option">گزینه صحیح : </p>
                     </div>
                     <div class="col-md-8">
                         <div class="custom-control custom-radio custom-control-inline mb-5">

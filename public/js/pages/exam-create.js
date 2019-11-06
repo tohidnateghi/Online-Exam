@@ -24,16 +24,16 @@ function createNewBlock() {
     newBlock.querySelector('textarea').id = 'question[' + count + '][text]';
     newBlock.querySelector('textarea').name = 'question[' + count + '][text]';
     newBlock.querySelectorAll('input[type=text]').forEach(function (input, i) {
-        input.id = 'question[' + count + '][answer][' + (i + 1) + ']';
-        input.name = 'question[' + count + '][answer][' + (i + 1) + ']';
+        input.id = 'question[' + count + '][option][' + (i + 1) + ']';
+        input.name = 'question[' + count + '][option][' + (i + 1) + ']';
     });
     newBlock.querySelectorAll('input[type=radio]').forEach(function (input, i) {
-        input.id = 'question[' + count + '][option][' + (i + 1) + ']';
-        input.name = 'question[' + count + '][option]';
+        input.id = 'question[' + count + '][correct-option][' + (i + 1) + ']';
+        input.name = 'question[' + count + '][correct-option]';
     });
 
     newBlock.querySelectorAll('label').forEach(function (label, i) {
-        label.setAttribute('for', 'question[' + count + '][option][' + (i + 1) + ']');
+        label.setAttribute('for', 'question[' + count + '][correct-option][' + (i + 1) + ']');
 
     });
 
@@ -90,10 +90,10 @@ document.getElementById('create-exam-form').onsubmit = function (event) {
             addErrorBlock(text);
         }
 
-        var answers = question.querySelectorAll('input[type=text]');
-        answers.forEach(function (answer) {
-            if (answer.value == '') {
-                addErrorBlock(answer);
+        var options = question.querySelectorAll('input[type=text]');
+        options.forEach(function (option) {
+            if (option.value == '') {
+                addErrorBlock(option);
             }
         });
 
@@ -106,7 +106,7 @@ document.getElementById('create-exam-form').onsubmit = function (event) {
         });
 
         if (!checked) {
-            question.querySelector('.correct-answer').classList.add('text-danger');
+            question.querySelector('.correct-option').classList.add('text-danger');
             formError = true;
         }
 
@@ -150,7 +150,7 @@ function addEvents(element) {
 
     element.querySelectorAll('input[type=radio]').forEach(function (input) {
         input.addEventListener('change', function () {
-            element.querySelector('.correct-answer').classList.remove('text-danger');
+            element.querySelector('.correct-option').classList.remove('text-danger');
         });
     });
 
@@ -172,14 +172,13 @@ function submitForm() {
         data.questions[i + 1] = {};
         data.questions[i + 1]['text'] = question.querySelector('textarea').value;
 
-        data.questions[i + 1]['answer'] = {};
-        question.querySelectorAll('input[type=text]').forEach(function (answer, k) {
-            data.questions[i + 1]['answer'][k + 1] = answer.value;
+        question.querySelectorAll('input[type=text]').forEach(function (option, k) {
+            data.questions[i + 1]['option' + (k + 1)] = option.value;
         });
 
         question.querySelectorAll('input[type=radio]').forEach(function (option, k) {
             if (option.checked) {
-                data.questions[i + 1]['correct'] = k + 1;
+                data.questions[i + 1]['answer'] = k + 1;
                 return;
             }
         });

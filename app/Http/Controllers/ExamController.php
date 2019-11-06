@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exam;
+use App\Question;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
@@ -15,8 +17,26 @@ class ExamController extends Controller
     }
 
     public function store(Request $request) {
-        $request->session()->flash('status', 'آزمون با موفقیت اضافه شد');
+        $data = json_decode($request->getContent(), true);
 
+        $exam = Exam::create([
+            'title' => $data['title'],
+            'time' => $data['time']
+        ]);
+
+        foreach($data['questions'] as $question) {
+            Question::create([
+                'exam_id' => $exam->id,
+                'text' => $question['text'],
+                'option1' => $question['option1'],
+                'option2' => $question['option2'],
+                'option3' => $question['option3'],
+                'option4' => $question['option4'],
+                'answer' => $question['answer'],
+            ]);
+        }
+
+        $request->session()->flash('status', 'آزمون با موفقیت اضافه شد');
     }
 
     public function result(Request $request) {

@@ -44,9 +44,6 @@
 
     <div id="page-container" class="@yield('sidebar-class', " sidebar-o sidebar-r side-scroll page-header-modern
         main-content-boxed")">
-        <!-- Side Overlay-->
-        @include('layouts.sidebar-left')
-        <!-- END Side Overlay -->
 
         <!-- Sidebar -->
         @include('layouts.sidebar')

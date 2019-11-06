@@ -17,7 +17,7 @@ const mix = require('laravel-mix');
 mix.styles([
     'public/css/codebase.css',
     'public/css/rtl.css',
-], 'public/css/all.css');
+], 'public/css/all.css').version();
 
 mix.scripts([
     'public/js/core/jquery.min.js',
@@ -28,4 +28,5 @@ mix.scripts([
     'public/js/core/jquery.countTo.min.js',
     'public/js/core/js.cookie.min.js',
     'public/js/core/codebase.js',
-], 'public/js/all.js');
+    'public/js/core/main.js',
+], 'public/js/all.js').version();

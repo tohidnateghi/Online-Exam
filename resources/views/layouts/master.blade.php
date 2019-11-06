@@ -11,12 +11,12 @@
     <title>آزمون آنلاین</title>
 
     <meta name="description" content="Online Exam project with laravel">
-    <meta name="author" content="pixelcave">
+    <meta name="author" content="Tohid Nateghi">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph Meta -->
-    <meta property="og:title" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework">
-    <meta property="og:site_name" content="Codebase">
+    <meta property="og:title" content="Online Exam developed By Tohid Nateghi with Laravel framework">
+    <meta property="og:site_name" content="Online Exam">
     <meta property="og:description" content="Online Exam project with laravel">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
@@ -29,7 +29,7 @@
     <!-- END Icons -->
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="{{ mix('/css/all.css') }}">
 
     {{-- Custom styles --}}
     @yield('styles')
@@ -72,7 +72,7 @@
     <!-- END Page Container -->
 
     <!-- All JS Files -->
-    <script src="/js/all.js"></script>
+    <script src="{{ mix('/js/all.js') }}"></script>
 
     {{-- custom scripts --}}
     @yield('scripts')

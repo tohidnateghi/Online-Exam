@@ -110,6 +110,6 @@
 @endsection
 
 @section('scripts')
-    <script src="/js/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+    <script src="/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
     <script src="/js/pages/exam-create.js"></script>
 @endsection

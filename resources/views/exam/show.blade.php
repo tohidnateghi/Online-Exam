@@ -11,15 +11,16 @@
             <div class="col-md-12">
                 <!-- Default Elements -->
                 <div class="block block-mode-loading-refresh" id="exam-block">
+                    
                     <div class="block-content block-content-full block-content-sm bg-body-light font-size-sm">
                         <div class="row">
                             <div class="col-sm-4">تعداد سوالات : {{ $exam->questions->count() }}</div>
                             <div class="col-sm-4">زمان آزمون : {{ $exam->time }} دقیقه</div>
-                            <div class="col-sm-4">زمان باقیمانده : 
+                            <div class="col-sm-4"><i class="fa fa-clock-o"></i> زمان باقیمانده : 
                                 <span id="remaining-time" class="px-2">
-                                    <span id="seconds"></span>:
-                                    <span  id="minutes"></span>:
-                                    <span id="hours"></span>
+                                    <span id="seconds">00</span>:
+                                    <span  id="minutes">{{ round($exam->time % 60) }}</span>:
+                                    <span id="hours">{{ round($exam->time /  60) }}</span>
                                 </span>
                             </div>
                         </div>
@@ -69,20 +70,50 @@
                                     </div>
                                 </div>
                             @endforeach
-
-                            <button id="show_result" type="submit" class="btn btn-outline-primary my-3">مشاهده نتیجه</button>
+                            
+                            <button id="show_result" type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#modal-fadein">اتمام آزمون</button>
+                            
                         </form>
 
                     </div>
+
+                    <!-- Fade In Modal -->
+                    <div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-labelledby="modal-fadein" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="block block-themed block-transparent mb-0">
+                                    <div class="block-header bg-primary-dark">
+                                        <h3 class="block-title">تایید اتمام آزمون</h3>
+                                        <div class="block-options">
+                                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                                                <i class="si si-close"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="block-content">
+                                        <p>آیا مطمئن هستید؟</p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-alt-secondary" data-dismiss="modal">خیر</button>
+                                    <button id="submit" type="button" class="btn btn-alt-success" data-dismiss="modal">
+                                        <i class="fa fa-check"></i> بله
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Fade In Modal -->
+
                     <div id="result" class="block-content block-content-full block-content-sm bg-body-light font-size-sm d-none">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 جواب درست : <span id="correct" class="text-success"></span>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 جواب اشتباه : <span id="wrong" class="text-danger"></span>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 بدون جواب : <span id="empty"></span>
                             </div>
                         </div>
@@ -102,5 +133,6 @@
     <script>
         var examTime = {{ $exam->time }};
     </script>
+    <script src="/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
     <script src="/js/pages/exam-show.js"></script>
 @endsection

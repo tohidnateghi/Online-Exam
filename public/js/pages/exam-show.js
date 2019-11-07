@@ -1,8 +1,11 @@
 'use strict'
 document.getElementById('exam-form').addEventListener('submit', submitForm);
+document.getElementById('submit').addEventListener('click', submitForm);
 
 var endTime = new Date().getTime() + (examTime * 60 * 1000);
 var firstDistance = endTime - new Date().getTime();
+var firstWarning = false;
+var secondWarning = false;
 
 var remaining = setInterval(() => {
     // Get todays date and time
@@ -30,14 +33,18 @@ var remaining = setInterval(() => {
     var remainingPercent = (100 * distance ) / firstDistance;
 
     var progressbar = document.getElementById('progressbar');
-    if(remainingPercent < 30 && remainingPercent > 10) {
+    if(remainingPercent < 30 && remainingPercent > 10 && !firstWarning) {
         document.getElementById('progressbar').classList.remove('bg-success');
         document.getElementById('progressbar').classList.add('bg-warning');
+        showMessage('زمان باقیمانده : ' + hours + ':' + minutes + ':' + seconds,'warning');
+        firstWarning = true;
     }
 
-    if(remainingPercent < 10) {
+    if(remainingPercent < 10 && !secondWarning) {
         document.getElementById('progressbar').classList.remove('bg-warning');
         document.getElementById('progressbar').classList.add('bg-danger');
+        showMessage('زمان باقیمانده : ' + hours + ':' + minutes + ':' + seconds,'danger');
+        secondWarning = true;
     }
 
     progressbar.style.width = remainingPercent + '%';
@@ -50,7 +57,8 @@ function submitForm(event) {
         event.preventDefault();
     }
 
-    document.getElementById('exam-block').classList.add('block-mode-loading');
+    jQuery('#modal-fadein').modal('hide');
+    Codebase.loader('show');
     document.getElementById('show_result').setAttribute('disabled', 'disabled');
 
     var questions = document.querySelectorAll('.question');
@@ -83,7 +91,7 @@ function submitForm(event) {
             } else {
                 alert('مشکلی در برقراری ارتباط رخ داده است');
                 document.getElementById('show_result').removeAttribute('disabled');
-                document.querySelector('#exam-block').classList.remove('block-mode-loading');
+                Codebase.loader('hide');
             }
         }
     }
@@ -137,6 +145,6 @@ function show_result(answer) {
 
     document.getElementById('show_result').remove();
     document.getElementById('result').classList.remove('d-none');
-    document.querySelector('#exam-block').classList.remove('block-mode-loading');
+    Codebase.loader('hide');
 
 }

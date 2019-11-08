@@ -15,8 +15,8 @@ const mix = require('laravel-mix');
 //     .sass('resources/sass/app.scss', 'public/css');
 
 mix.styles([
-    'public/css/codebase.css',
-    'public/css/rtl.css',
+    'public/css/core/codebase.css',
+    'public/css/core/rtl.css',
 ], 'public/css/all.css').version();
 
 mix.scripts([

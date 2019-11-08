@@ -52,7 +52,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="custom-control custom-radio mb-5">
+                                                    <div class="custom-control custom-radio custom-control-danger mb-5">
                                                         <input class="custom-control-input" type="radio" name="option-radios-{{ $question->id }}"
                                                             id="option-radio-{{ $question->id }}-3" value="option3">
                                                         <label class="custom-control-label" for="option-radio-{{ $question->id }}-3">{{ $question->option3 }}</label>
@@ -79,7 +79,7 @@
 
                     <!-- Fade In Modal -->
                     <div class="modal fade" id="modal-fadein" tabindex="-1" role="dialog" aria-labelledby="modal-fadein" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
                                 <div class="block block-themed block-transparent mb-0">
                                     <div class="block-header bg-primary-dark">

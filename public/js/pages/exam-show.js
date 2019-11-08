@@ -2,16 +2,22 @@
 document.getElementById('exam-form').addEventListener('submit', submitForm);
 document.getElementById('submit').addEventListener('click', submitForm);
 
-var endTime = new Date().getTime() + (examTime * 60 * 1000);
-var firstDistance = endTime - new Date().getTime();
+var questionsRadio = document.querySelectorAll('.question .custom-radio label');
+questionsRadio.forEach(function(el) {
+    el.addEventListener('click', uncheck);
+});
+
+var now = new Date().getTime();
+var endTime = now + (examTime * 60 * 1000);
+var firstDistance = endTime - now;
 var firstWarning = false;
 var secondWarning = false;
 
 var remaining = setInterval(() => {
-    // Get todays date and time
+
     var now = new Date().getTime();
 
-    // Find the distance between now an the count down date
+    // Find the distance between now an the endTime
     var distance = endTime - now;
 
     if (distance < 0) {
@@ -26,7 +32,7 @@ var remaining = setInterval(() => {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Display the result in an element with id="coming"
+    // Display the Remainig time
     document.getElementById("hours").innerHTML = hours;
     document.getElementById("minutes").innerHTML = minutes;
     document.getElementById("seconds").innerHTML = seconds;
@@ -147,4 +153,14 @@ function show_result(answer) {
     document.getElementById('result').classList.remove('d-none');
     Codebase.loader('hide');
 
+}
+
+function uncheck(el) {
+    var radio = document.getElementById(el.target.getAttribute('for'));
+
+    if(radio.checked) {
+        setTimeout(function() {
+            radio.checked = false;
+        }, 10);
+    }
 }

@@ -16,13 +16,14 @@ const mix = require('laravel-mix');
 
 mix.styles([
     'public/css/core/codebase.css',
+    'public/css/core/main.css',
     'public/css/core/rtl.css',
 ], 'public/css/all.css').version();
 
 mix.scripts([
     'public/js/core/jquery.min.js',
     'public/js/core/bootstrap.bundle.min.js',
-    'public/js/core/jquery.slimscroll.min.js',
+    'public/js/core/jquery.slimscroll.js',
     'public/js/core/jquery.scrollLock.min.js',
     'public/js/core/jquery.appear.min.js',
     'public/js/core/jquery.countTo.min.js',

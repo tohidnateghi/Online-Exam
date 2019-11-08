@@ -52,7 +52,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="custom-control custom-radio custom-control-danger mb-5">
+                                                    <div class="custom-control custom-radio mb-5">
                                                         <input class="custom-control-input" type="radio" name="option-radios-{{ $question->id }}"
                                                             id="option-radio-{{ $question->id }}-3" value="option3">
                                                         <label class="custom-control-label" for="option-radio-{{ $question->id }}-3">{{ $question->option3 }}</label>
@@ -71,7 +71,7 @@
                                 </div>
                             @endforeach
                             
-                            <button id="show_result" type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#modal-fadein">اتمام آزمون</button>
+                            <button id="show_result" type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#modal-fadein">پایان آزمون</button>
                             
                         </form>
 
@@ -83,7 +83,7 @@
                             <div class="modal-content">
                                 <div class="block block-themed block-transparent mb-0">
                                     <div class="block-header bg-primary-dark">
-                                        <h3 class="block-title">تایید اتمام آزمون</h3>
+                                        <h3 class="block-title">تایید پایان آزمون</h3>
                                         <div class="block-options">
                                             <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                                 <i class="si si-close"></i>

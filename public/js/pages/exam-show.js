@@ -126,9 +126,11 @@ function show_result(answer) {
         inputs.forEach(function(input, k) {
             if (input.checked && (value['answer'] - 1) != k) {
                 div[k].classList.add("text-danger");
+                div[k].parentElement.classList.add("custom-control-danger");
                 wrong++;
             } else if (input.checked && (value['answer'] - 1) == k) {
                 div[k].classList.add("text-success");
+                div[k].parentElement.classList.add("custom-control-success");
                 correct++;
             } else if ((value['answer'] - 1) == k) {
                 div[k].classList.add("text-success");
@@ -158,7 +160,7 @@ function show_result(answer) {
 function uncheck(el) {
     var radio = document.getElementById(el.target.getAttribute('for'));
 
-    if(radio.checked) {
+    if(!radio.disabled && radio.checked) {
         setTimeout(function() {
             radio.checked = false;
         }, 10);

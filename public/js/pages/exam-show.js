@@ -33,23 +33,30 @@ var remaining = setInterval(() => {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the Remainig time
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    document.querySelectorAll(".hours").forEach(function(el) {
+        el.innerHTML = hours;
+    });
+    document.querySelectorAll(".minutes").forEach(function(el) {
+        el.innerHTML = minutes;
+    });
+    document.querySelectorAll(".seconds").forEach(function(el) {
+        el.innerHTML = seconds;
+    });
+
     var remainingPercent = (100 * distance ) / firstDistance;
 
     var progressbar = document.getElementById('progressbar');
     if(remainingPercent < 30 && remainingPercent > 10 && !firstWarning) {
         document.getElementById('progressbar').classList.remove('bg-success');
         document.getElementById('progressbar').classList.add('bg-warning');
-        showMessage('زمان باقیمانده : ' + hours + ':' + minutes + ':' + seconds,'warning');
+        showMessage('زمان باقیمانده : <span class="seconds"></span> : <span class="minutes"></span> : <span class="hours"></span>','warning');
         firstWarning = true;
     }
 
     if(remainingPercent < 10 && !secondWarning) {
         document.getElementById('progressbar').classList.remove('bg-warning');
         document.getElementById('progressbar').classList.add('bg-danger');
-        showMessage('زمان باقیمانده : ' + hours + ':' + minutes + ':' + seconds,'danger');
+        showMessage('زمان باقیمانده : <span class="seconds"></span> : <span class="minutes"></span> : <span class="hours"></span>','danger');
         secondWarning = true;
     }
 

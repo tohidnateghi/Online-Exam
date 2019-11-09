@@ -17,9 +17,9 @@
                         <div class="col-sm-4">زمان آزمون : {{ $exam->time }} دقیقه</div>
                         <div class="col-sm-4"><i class="fa fa-clock-o"></i> زمان باقیمانده : 
                             <span id="remaining-time" class="px-2">
-                                <span class="seconds">00</span>:
-                                <span  class="minutes">{{ round($exam->time % 60) }}</span>:
-                                <span class="hours">{{ round($exam->time /  60) }}</span>
+                                <span id="seconds">00</span>:
+                                <span  id="minutes">{{ round($exam->time % 60) }}</span>:
+                                <span id="hours">{{ round($exam->time /  60) }}</span>
                             </span>
                         </div>
                     </div>
@@ -71,6 +71,7 @@
                         @endforeach
                         <button id="show_result" type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#modal-fadein">پایان آزمون</button>
                     </form>
+
                 </div>
 
                 <!-- Fade In Modal -->

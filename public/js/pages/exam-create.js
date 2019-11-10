@@ -189,7 +189,7 @@ function submitForm() {
     ajax.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE) {
             if (this.status == 200) {
-                window.location.replace('/');
+                window.location.replace(redirect_to);
             } else {
                 alert('مشکلی رخ داده است.');
                 Codebase.loader('hide');

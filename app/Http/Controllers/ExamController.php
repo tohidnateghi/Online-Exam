@@ -42,7 +42,7 @@ class ExamController extends Controller
             ]);
         }
 
-        $request->session()->flash('status', 'آزمون با موفقیت اضافه شد');
+        $request->session()->flash('message', 'آزمون با موفقیت اضافه شد');
     }
 
     public function result($id, Request $request) {
@@ -68,5 +68,9 @@ class ExamController extends Controller
         // return $correct.' '.$wrong;
 
         return response()->json($answer);
+    }
+
+    public function destroy(Exam $exam) {
+        $exam->delete();
     }
 }

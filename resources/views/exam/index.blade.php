@@ -6,9 +6,9 @@
 
     <h2 class="content-heading">لیست آزمون ها</h2>
  
+    @include('partials.messages')
     <!-- Hover Table -->
     <div class="block">
-
         <div class="block-content">
             <table class="table table-hover table-vcenter">
                 <thead>
@@ -23,7 +23,7 @@
                 <tbody>
                     @foreach($exams as $exam)
                         <tr id={{ $exam->id }} class="exam-detail">
-                            <th class="text-center" scope="row">{{ $loop->index + 1 }}</th>
+                            <th class="text-center number" scope="row">{{ $loop->index + 1 }}</th>
                             <td>{{ $exam->title }}</td>
                             <td class="text-center">{{ $exam->time }} دقیقه</td>
                             <td class="text-center">{{ $exam->questions()->count() }}</td>
@@ -75,6 +75,10 @@
 @endsection
 
 @section('scripts')
+    <script>
+        var action = "/exam/";
+        var _token = "{{ csrf_token() }}";
+    </script>
     <script src="/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
     <script src="/js/pages/exam-index.js"></script>
 @endsection

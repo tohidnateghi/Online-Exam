@@ -2,14 +2,7 @@
 
 @section('content')
     <div class="content">
-        @if(session('status'))
-            <div class="alert alert-success alert-dismissable" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <p class="mb-0">{{ session('status') }}</p>
-            </div>
-        @endif
+        @include('partials.messages')
         <div class="block">
             <div class="block-header block-header-default">
                 <h3 class="block-title"><small>از اینجا شروع کنید</small> صفحه خالی</h3>

@@ -110,6 +110,9 @@
 @endsection
 
 @section('scripts')
+    <script>
+        var redirect_to = "{{ route('exam.index') }}";
+    </script>
     <script src="/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
     <script src="/js/pages/exam-create.js"></script>
 @endsection

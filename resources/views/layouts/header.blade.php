@@ -27,13 +27,6 @@
                     <a class="dropdown-item" href="">
                         <i class="si si-user ml-5"></i> پروفایل
                     </a>
-                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="">
-                        <span><i class="si si-envelope-open ml-5"></i> دریافتی</span>
-                        <span class="badge badge-primary">3</span>
-                    </a>
-                    <a class="dropdown-item" href="">
-                        <i class="si si-note ml-5"></i> فاکتور ها
-                    </a>
                     <div class="dropdown-divider"></div>
 
                     <a class="dropdown-item" href="">

@@ -29,7 +29,7 @@
                             <td class="text-center">{{ $exam->questions()->count() }}</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="ویرایش">
+                                    <button type="button" class="btn btn-sm btn-secondary btn-edit" data-toggle="tooltip" title="ویرایش">
                                         <i class="fa fa-pencil"></i>
                                     </button>
                                     <button type="button" class="btn btn-sm btn-secondary btn-delete" data-toggle="tooltip" title="حذف">

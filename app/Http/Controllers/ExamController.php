@@ -45,6 +45,10 @@ class ExamController extends Controller
         $request->session()->flash('message', 'آزمون با موفقیت اضافه شد');
     }
 
+    public function edit(Exam $exam) {
+        return view('exam.edit', compact('exam'));
+    }
+
     public function result($id, Request $request) {
 
         $answer = Question::where('exam_id', $id)->get(['id', 'answer']);

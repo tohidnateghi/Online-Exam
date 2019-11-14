@@ -1,7 +1,16 @@
 'use strict'
 
 var deleteButtons = document.querySelectorAll('.btn-delete');
+var editButtons = document.querySelectorAll('.btn-edit');
 var id = null;
+
+editButtons.forEach(function(element) {
+    element.addEventListener('click', function(event) {
+        id = event.target.closest('.exam-detail').id;
+        window.location = '/exam/' + id + '/edit';
+    });
+
+});
 
 deleteButtons.forEach(function(element) {
     element.addEventListener('click', function(event) {

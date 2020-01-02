@@ -1,8 +1,8 @@
 'use strict'
 
-document.getElementById('add').onclick = createNewBlock;
-document.getElementById('title').addEventListener('input', removeErrorBlock);
-document.getElementById('time').addEventListener('input', removeErrorBlock);
+$('#add').click(createNewBlock);
+$('#title').on('input', removeErrorBlock);
+$('#time').on('input', removeErrorBlock);
 
 var count = 0;
 var number = 0;
@@ -51,7 +51,7 @@ function removeFunction(event) {
     }, 800);
 
     number--;
-    if(number == 0) {
+    if (number == 0) {
         document.getElementById('submit').classList.add('d-none');
     }
 }
@@ -66,8 +66,9 @@ document.getElementById('create-exam-form').onsubmit = function (event) {
         addErrorBlock(title);
     }
 
-    var time = document.getElementById('time');
-    if (time.value == '') {
+    // var time = document.getElementById('time');
+    if ($('#time').val() == '') {
+        console.log(time);
         addErrorBlock(time);
     }
 
